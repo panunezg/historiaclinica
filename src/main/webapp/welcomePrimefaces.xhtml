@@ -63,18 +63,19 @@
                            
                             
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" locale="de" navigator="true" pattern="yyyy-MM-dd HH:mm a" mask="true" >
+                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" locale="de" navigator="true" pattern="dd-MM-yyyy"  mask="true" >
                                 <p:ajax event="dateSelect" process="@this"
                                         listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
                                
-                            </p:calendar>
-                            
+                            </p:calendar>                            
                             <h:outputLabel>dd/MM/AAAA</h:outputLabel> 
-                            <p:outputLabel for="time" value="Time:" />
-                            <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm a" timeOnly="true"  />
+                            
+                            <p:outputLabel for="hora" value="Hora:" />
+                            <p:calendar id="hora" value="#{calendarView.date11}" pattern="HH:mm a" timeOnly="true"  />
                              <h:outputText value="#{calendarView.date11}">
                                 <f:convertDateTime pattern="HH:mm a" />
                             </h:outputText>
+                            <h:outputLabel>hh/mm </h:outputLabel> 
                             
                         <h:outputLabel>Meses</h:outputLabel>
                         <p:inputText id="p_meses" value="#{paciente.meses}"  >
