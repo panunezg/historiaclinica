@@ -60,14 +60,22 @@
                             </h:selectOneMenu>
                             <h:outputLabel/>
 
+                           
+                            
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
-
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
+                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" locale="de" navigator="true" pattern="yyyy-MM-dd HH:mm a" mask="true" >
                                 <p:ajax event="dateSelect" process="@this"
                                         listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
                                
-                        </p:calendar>
-                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
+                            </p:calendar>
+                            
+                            <h:outputLabel>dd/MM/AAAA</h:outputLabel> 
+                            <p:outputLabel for="time" value="Time:" />
+                            <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm a" timeOnly="true"  />
+                             <h:outputText value="#{calendarView.date11}">
+                                <f:convertDateTime pattern="HH:mm a" />
+                            </h:outputText>
+                            
                         <h:outputLabel>Meses</h:outputLabel>
                         <p:inputText id="p_meses" value="#{paciente.meses}"  >
                         </p:inputText>
@@ -84,14 +92,15 @@
 
                     </h:panelGrid>
                 </p:tab>
-
-                <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
+                      <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
                 <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
                 <p:ajax event="tabChange"  
                         partialSubmit="true" process="seccion_p,seccion_p2"/>
                 <p:ajax event="tabClose"  
                         partialSubmit="true" process="seccion_p,seccion_p2"/>
 
+
+              
             </p:accordionPanel>
         </h:form>   
                 </p:layoutUnit>

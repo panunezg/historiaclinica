@@ -86,4 +86,5 @@ public class VistaPaciente implements Serializable {
         paciente.setFechaNacimiento(d);
         
     }
+    
 }
